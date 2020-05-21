@@ -1,0 +1,1669 @@
+<!-- Xml UI. See documentation: https://api.tabletopsimulator.com/ui/introUI/ -->
+
+<!-- BID INTENTION CONTENT -->
+
+<!-- Button that advances bid intention phase to bid phase -->
+<Button
+    id="all_bid_intentions_in"
+    active="false"
+    colors="#8cbff2|#ed5e5e|#ed5e5e"
+    fontSize="18"
+    height="96"
+    offsetXY="0 -275"
+    onClick="64453f/showBid"
+    padding="14 14 14 14"
+    shadow="rgba(0,0,0,0.18)"
+    shadowDistance="5 -5"
+    showAnimation="Grow"
+    showAnimationDelay="1"
+    animationDuration="0.75"
+    width="390">
+        Click ONLY if players who haven't yet submitted an intention are ineligible for bidding (advances to bidding)
+</Button>
+
+<!-- RED Player Bid Intention -->
+<Panel
+    id="intention_panel_red"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="475"
+    visibility="Red">
+</Panel>
+
+<Text
+    id="intention_text_red"
+    active="false"
+    color="white"
+    fontSize="30"
+    offsetXY="0 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Red">
+        Do you want to bid on this job?
+</Text>
+
+<ToggleGroup
+    id="intention_toggle_red"
+    active="false"
+    height="80"
+    offsetXY="-50 -155"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Red"
+    width="200">
+    <HorizontalLayout>
+        <Toggle
+            id="intention_toggle_yes_red"
+            onValueChanged="64453f/bid_toggle_red">
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    Yes
+            </Text>
+        </Toggle>
+        <Toggle>
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    No
+            </Text>
+        </Toggle>
+    </HorizontalLayout>
+</ToggleGroup>
+
+<Button
+    id="intention_button_red"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="110 -155"
+    onClick="64453f/submitIntentionRed"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Red"
+    width="110">
+        Submit
+</Button>
+
+<!-- BLUE Player Bid Intention -->
+<Panel
+    id="intention_panel_blue"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="475"
+    visibility="Blue">
+</Panel>
+
+<Text
+    id="intention_text_blue"
+    active="false"
+    color="white"
+    fontSize="30"
+    offsetXY="0 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Blue">
+        Do you want to bid on this job?
+</Text>
+
+<ToggleGroup
+    id="intention_toggle_blue"
+    active="false"
+    height="80"
+    offsetXY="-50 -155"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Blue"
+    width="200">
+    <HorizontalLayout>
+        <Toggle
+            id="intention_toggle_yes_blue"
+            onValueChanged="64453f/bid_toggle_blue">
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    Yes
+            </Text>
+        </Toggle>
+        <Toggle>
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    No
+            </Text>
+        </Toggle>
+    </HorizontalLayout>
+</ToggleGroup>
+
+<Button
+    id="intention_button_blue"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="110 -155"
+    onClick="64453f/submitIntentionBlue"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Blue"
+    width="110">
+        Submit
+</Button>
+
+<!-- YELLOW Player Bid Intention -->
+<Panel
+    id="intention_panel_yellow"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="475"
+    visibility="Yellow">
+</Panel>
+
+<Text
+    id="intention_text_yellow"
+    active="false"
+    color="white"
+    fontSize="30"
+    offsetXY="0 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Yellow">
+        Do you want to bid on this job?
+</Text>
+
+<ToggleGroup
+    id="intention_toggle_yellow"
+    active="false"
+    height="80"
+    offsetXY="-50 -155"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Yellow"
+    width="200">
+    <HorizontalLayout>
+        <Toggle
+            id="intention_toggle_yes_yellow"
+            onValueChanged="64453f/bid_toggle_yellow">
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    Yes
+            </Text>
+        </Toggle>
+        <Toggle>
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    No
+            </Text>
+        </Toggle>
+    </HorizontalLayout>
+</ToggleGroup>
+
+<Button
+    id="intention_button_yellow"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="110 -155"
+    onClick="64453f/submitIntentionYellow"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Yellow"
+    width="110">
+        Submit
+</Button>
+
+<!-- GREEN Player Bid Intention -->
+<Panel
+    id="intention_panel_green"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="475"
+    visibility="Green">
+</Panel>
+
+<Text
+    id="intention_text_green"
+    active="false"
+    color="white"
+    fontSize="30"
+    offsetXY="0 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Green">
+        Do you want to bid on this job?
+</Text>
+
+<ToggleGroup
+    id="intention_toggle_green"
+    active="false"
+    height="80"
+    offsetXY="-50 -155"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Green"
+    width="200">
+    <HorizontalLayout>
+        <Toggle
+            id="intention_toggle_yes_green"
+            onValueChanged="64453f/bid_toggle_green">
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    Yes
+            </Text>
+        </Toggle>
+        <Toggle>
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    No
+            </Text>
+        </Toggle>
+    </HorizontalLayout>
+</ToggleGroup>
+
+<Button
+    id="intention_button_green"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="110 -155"
+    onClick="64453f/submitIntentionGreen"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Green"
+    width="110">
+        Submit
+</Button>
+
+<!-- ORANGE Player Bid Intention -->
+<Panel
+    id="intention_panel_orange"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="475"
+    visibility="Orange">
+</Panel>
+
+<Text
+    id="intention_text_orange"
+    active="false"
+    color="white"
+    fontSize="30"
+    offsetXY="0 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Orange">
+        Do you want to bid on this job?
+</Text>
+
+<ToggleGroup
+    id="intention_toggle_orange"
+    active="false"
+    height="80"
+    offsetXY="-50 -155"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Orange"
+    width="200">
+    <HorizontalLayout>
+        <Toggle
+            id="intention_toggle_yes_orange"
+            onValueChanged="64453f/bid_toggle_orange">
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    Yes
+            </Text>
+        </Toggle>
+        <Toggle>
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    No
+            </Text>
+        </Toggle>
+    </HorizontalLayout>
+</ToggleGroup>
+
+<Button
+    id="intention_button_orange"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="110 -155"
+    onClick="64453f/submitIntentionOrange"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Orange"
+    width="110">
+        Submit
+</Button>
+
+<!-- PURPLE Player Bid Intention -->
+<Panel
+    id="intention_panel_purple"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="475"
+    visibility="Purple">
+</Panel>
+
+<Text
+    id="intention_text_purple"
+    active="false"
+    color="white"
+    fontSize="30"
+    offsetXY="0 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Purple">
+        Do you want to bid on this job?
+</Text>
+
+<ToggleGroup
+    id="intention_toggle_purple"
+    active="false"
+    height="80"
+    offsetXY="-50 -155"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Purple"
+    width="200">
+    <HorizontalLayout>
+        <Toggle
+            id="intention_toggle_yes_purple"
+            onValueChanged="64453f/bid_toggle_purple">
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    Yes
+            </Text>
+        </Toggle>
+        <Toggle>
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    No
+            </Text>
+        </Toggle>
+    </HorizontalLayout>
+</ToggleGroup>
+
+<Button
+    id="intention_button_purple"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="110 -155"
+    onClick="64453f/submitIntentionPurple"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Purple"
+    width="110">
+        Submit
+</Button>
+
+<!-- PINK Player Bid Intention -->
+<Panel
+    id="intention_panel_pink"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="475"
+    visibility="Pink">
+</Panel>
+
+<Text
+    id="intention_text_pink"
+    active="false"
+    color="white"
+    fontSize="30"
+    offsetXY="0 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Pink">
+        Do you want to bid on this job?
+</Text>
+
+<ToggleGroup
+    id="intention_toggle_pink"
+    active="false"
+    height="80"
+    offsetXY="-50 -155"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Pink"
+    width="200">
+    <HorizontalLayout>
+        <Toggle
+            id="intention_toggle_yes_pink"
+            onValueChanged="64453f/bid_toggle_pink">
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    Yes
+            </Text>
+        </Toggle>
+        <Toggle>
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    No
+            </Text>
+        </Toggle>
+    </HorizontalLayout>
+</ToggleGroup>
+
+<Button
+    id="intention_button_pink"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="110 -155"
+    onClick="64453f/submitIntentionPink"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Pink"
+    width="110">
+        Submit
+</Button>
+
+<!-- WHITE Player Bid Intention -->
+<Panel
+    id="intention_panel_white"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="475"
+    visibility="White">
+</Panel>
+
+<Text
+    id="intention_text_white"
+    active="false"
+    color="white"
+    fontSize="30"
+    offsetXY="0 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="White">
+        Do you want to bid on this job?
+</Text>
+
+<ToggleGroup
+    id="intention_toggle_white"
+    active="false"
+    height="80"
+    offsetXY="-50 -155"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="White"
+    width="200">
+    <HorizontalLayout>
+        <Toggle
+            id="intention_toggle_yes_white"
+            onValueChanged="64453f/bid_toggle_white">
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    Yes
+            </Text>
+        </Toggle>
+        <Toggle>
+            <Text
+                color="white"
+                fontSize="24"
+                shadow="black"
+                shadowDistance="2 -2">
+                    No
+            </Text>
+        </Toggle>
+    </HorizontalLayout>
+</ToggleGroup>
+
+<Button
+    id="intention_button_white"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="110 -155"
+    onClick="64453f/submitIntentionWhite"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="White"
+    width="110">
+        Submit
+</Button>
+
+<!-- BID ADJUSTMENT/SUBMISSION CONTENT -->
+
+<!-- Button that calculates all bids -->
+<!-- <Button
+    id="all_bids_in"
+    active="false"
+    colors="#8cbff2|#ed5e5e|#ed5e5e"
+    fontSize="18"
+    height="80"
+    offsetXY="0 -275"
+    onClick="64453f/lockBids"
+    shadow="rgba(0,0,0,0.18)"
+    shadowDistance="5 -5"
+    showAnimation="Grow"
+    showAnimationDelay="1"
+    animationDuration="0.75"
+    width="320">
+        Click ONLY after all players have bid (evaluates bids &amp; names winner)
+</Button> -->
+
+<!-- RED Player Bid -->
+
+<Panel
+    id="bid_panel_red"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="775"
+    visibility="Red">
+</Panel>
+
+<Text
+    id="effective_bid_text_red"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-285 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Red">
+        Effective bid:
+</Text>
+
+<Text
+    id="reputation_text_red"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Red">
+        Reputation:
+</Text>
+
+<Text
+    id="fee_text_red"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Red">
+        Your fee:
+</Text>
+
+<InputField
+    id="effective_bid_red"
+    active="false"
+    characterLimit="4"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-285 -150"
+    onValueChanged="64453f/adjustBidRed"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Red"
+    width="85">
+</InputField>
+
+<InputField
+    id="reputation_red"
+    active="false"
+    characterLimit="2"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-95 -150"
+    onValueChanged="64453f/adjustReputationRed"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Red"
+    width="85">
+</InputField>
+
+<InputField
+    id="fee_red"
+    active="false"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="95 -150"
+    readOnly="true"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="85"
+    visibility="Red">
+</InputField>
+
+<Button
+    id="bid_button_red"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="285 -150"
+    onClick="64453f/submitBidRed"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Red"
+    width="120">
+        Submit Bid
+</Button>
+
+<!-- BLUE Player Bid -->
+<Panel
+    id="bid_panel_blue"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="775"
+    visibility="Blue">
+</Panel>
+
+<Text
+    id="effective_bid_text_blue"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-285 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Blue">
+        Effective bid:
+</Text>
+
+<Text
+    id="reputation_text_blue"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Blue">
+        Reputation:
+</Text>
+
+<Text
+    id="fee_text_blue"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Blue">
+        Your fee:
+</Text>
+
+<InputField
+    id="effective_bid_blue"
+    active="false"
+    characterLimit="4"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-285 -150"
+    onValueChanged="64453f/adjustBidBlue"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Blue"
+    width="85">
+</InputField>
+
+<InputField
+    id="reputation_blue"
+    active="false"
+    characterLimit="2"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-95 -150"
+    onValueChanged="64453f/adjustReputationBlue"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Blue"
+    width="85">
+</InputField>
+
+<InputField
+    id="fee_blue"
+    active="false"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="95 -150"
+    readOnly="true"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="85"
+    visibility="Blue">
+</InputField>
+
+<Button
+    id="bid_button_blue"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="285 -150"
+    onClick="64453f/submitBidBlue"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Blue"
+    width="120">
+        Submit Bid
+</Button>
+
+<!-- YELLOW Player Bid -->
+<Panel
+    id="bid_panel_yellow"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="775"
+    visibility="Yellow">
+</Panel>
+
+<Text
+    id="effective_bid_text_yellow"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-285 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Yellow">
+        Effective bid:
+</Text>
+
+<Text
+    id="reputation_text_yellow"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Yellow">
+        Reputation:
+</Text>
+
+<Text
+    id="fee_text_yellow"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Yellow">
+        Your fee:
+</Text>
+
+<InputField
+    id="effective_bid_yellow"
+    active="false"
+    characterLimit="4"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-285 -150"
+    onValueChanged="64453f/adjustBidYellow"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="yellow"
+    width="85">
+</InputField>
+
+<InputField
+    id="reputation_yellow"
+    active="false"
+    characterLimit="2"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-95 -150"
+    onValueChanged="64453f/adjustReputationYellow"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Yellow"
+    width="85">
+</InputField>
+
+<InputField
+    id="fee_yellow"
+    active="false"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="95 -150"
+    readOnly="true"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="85"
+    visibility="Yellow">
+</InputField>
+
+<Button
+    id="bid_button_yellow"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="285 -150"
+    onClick="64453f/submitBidYellow"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Yellow"
+    width="120">
+        Submit Bid
+</Button>
+
+<!-- GREEN Player Bid -->
+<Panel
+    id="bid_panel_green"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="775"
+    visibility="Green">
+</Panel>
+
+<Text
+    id="effective_bid_text_green"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-285 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Green">
+        Effective bid:
+</Text>
+
+<Text
+    id="reputation_text_green"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Green">
+        Reputation:
+</Text>
+
+<Text
+    id="fee_text_green"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Green">
+        Your fee:
+</Text>
+
+<InputField
+    id="effective_bid_green"
+    active="false"
+    characterLimit="4"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-285 -150"
+    onValueChanged="64453f/adjustBidGreen"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Green"
+    width="85">
+</InputField>
+
+<InputField
+    id="reputation_green"
+    active="false"
+    characterLimit="2"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-95 -150"
+    onValueChanged="64453f/adjustReputationGreen"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Green"
+    width="85">
+</InputField>
+
+<InputField
+    id="fee_green"
+    active="false"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="95 -150"
+    readOnly="true"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="85"
+    visibility="Green">
+</InputField>
+
+<Button
+    id="bid_button_green"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="285 -150"
+    onClick="64453f/submitBidGreen"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Green"
+    width="120">
+        Submit Bid
+</Button>
+
+<!-- ORANGE Player Bid -->
+<Panel
+    id="bid_panel_orange"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="775"
+    visibility="Orange">
+</Panel>
+
+<Text
+    id="effective_bid_text_orange"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-285 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Orange">
+        Effective bid:
+</Text>
+
+<Text
+    id="reputation_text_orange"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Orange">
+        Reputation:
+</Text>
+
+<Text
+    id="fee_text_orange"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Orange">
+        Your fee:
+</Text>
+
+<InputField
+    id="effective_bid_orange"
+    active="false"
+    characterLimit="4"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-285 -150"
+    onValueChanged="64453f/adjustBidOrange"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Orange"
+    width="85">
+</InputField>
+
+<InputField
+    id="reputation_orange"
+    active="false"
+    characterLimit="2"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-95 -150"
+    onValueChanged="64453f/adjustReputationOrange"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Orange"
+    width="85">
+</InputField>
+
+<InputField
+    id="fee_orange"
+    active="false"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="95 -150"
+    readOnly="true"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="85"
+    visibility="Orange">
+</InputField>
+
+<Button
+    id="bid_button_orange"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="285 -150"
+    onClick="64453f/submitBidOrange"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Orange"
+    width="120">
+        Submit Bid
+</Button>
+
+<!-- PURPLE Player Bid -->
+<Panel
+    id="bid_panel_purple"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="775"
+    visibility="Purple">
+</Panel>
+
+<Text
+    id="effective_bid_text_purple"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-285 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Purple">
+        Effective bid:
+</Text>
+
+<Text
+    id="reputation_text_purple"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Purple">
+        Reputation:
+</Text>
+
+<Text
+    id="fee_text_purple"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Purple">
+        Your fee:
+</Text>
+
+<InputField
+    id="effective_bid_purple"
+    active="false"
+    characterLimit="4"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-285 -150"
+    onValueChanged="64453f/adjustBidPurple"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Purple"
+    width="85">
+</InputField>
+
+<InputField
+    id="reputation_purple"
+    active="false"
+    characterLimit="2"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-95 -150"
+    onValueChanged="64453f/adjustReputationPurple"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Purple"
+    width="85">
+</InputField>
+
+<InputField
+    id="fee_purple"
+    active="false"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="95 -150"
+    readOnly="true"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="85"
+    visibility="Purple">
+</InputField>
+
+<Button
+    id="bid_button_purple"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="285 -150"
+    onClick="64453f/submitBidPurple"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Purple"
+    width="120">
+        Submit Bid
+</Button>
+
+<!-- PINK Player Bid -->
+
+<Panel
+    id="bid_panel_pink"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="775"
+    visibility="Pink">
+</Panel>
+
+<Text
+    id="effective_bid_text_pink"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-285 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Pink">
+        Effective bid:
+</Text>
+
+<Text
+    id="reputation_text_pink"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Pink">
+        Reputation:
+</Text>
+
+<Text
+    id="fee_text_pink"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Pink">
+        Your fee:
+</Text>
+
+<InputField
+    id="effective_bid_pink"
+    active="false"
+    characterLimit="4"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-285 -150"
+    onValueChanged="64453f/adjustBidPink"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Pink"
+    width="85">
+</InputField>
+
+<InputField
+    id="reputation_pink"
+    active="false"
+    characterLimit="2"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-95 -150"
+    onValueChanged="64453f/adjustReputationPink"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Pink"
+    width="85">
+</InputField>
+
+<InputField
+    id="fee_pink"
+    active="false"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="95 -150"
+    readOnly="true"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="85"
+    visibility="Pink">
+</InputField>
+
+<Button
+    id="bid_button_pink"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="285 -150"
+    onClick="64453f/submitBidPink"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="Pink"
+    width="120">
+        Submit Bid
+</Button>
+
+<!-- WHITE Player Bid -->
+
+<Panel
+    id="bid_panel_white"
+    color="rgba(1,1,1,0.28)"
+    height="155"
+    active="false"
+    offsetXY="0 -127"
+    shadow="black"
+    shadowDistance="6 -6"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="775"
+    visibility="White">
+</Panel>
+
+<Text
+    id="effective_bid_text_white"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-285 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="White">
+        Effective bid:
+</Text>
+
+<Text
+    id="reputation_text_white"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="-95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="White">
+        Reputation:
+</Text>
+
+<Text
+    id="fee_text_white"
+    active="false"
+    color="white"
+    fontSize="24"
+    offsetXY="95 -90"
+    shadow="black"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="White">
+        Your fee:
+</Text>
+
+<InputField
+    id="effective_bid_white"
+    active="false"
+    characterLimit="4"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-285 -150"
+    onValueChanged="64453f/adjustBidWhite"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="White"
+    width="85">
+</InputField>
+
+<InputField
+    id="reputation_white"
+    active="false"
+    characterLimit="2"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="-95 -150"
+    onValueChanged="64453f/adjustReputationWhite"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="White"
+    width="85">
+</InputField>
+
+<InputField
+    id="fee_white"
+    active="false"
+    characterValidation="Integer"
+    fontSize="26"
+    height="44"
+    offsetXY="95 -150"
+    readOnly="true"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    width="85"
+    visibility="White">
+</InputField>
+
+<Button
+    id="bid_button_white"
+    active="false"
+    colors="#E8E8E8|#FFFFFF|#FFFFFF"
+    fontSize="20"
+    height="50"
+    offsetXY="285 -150"
+    onClick="64453f/submitBidWhite"
+    shadow="rgba(0,0,0,0.5)"
+    shadowDistance="2 -2"
+    showAnimation="FadeIn"
+    animationDuration="0.25"
+    visibility="White"
+    width="120">
+        Submit Bid
+</Button>

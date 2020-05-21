@@ -1,0 +1,1035 @@
+--Global variables
+--RED
+reputation_red = 0
+effective_bid_red = 0
+fee_red = 0
+--BLUE
+reputation_blue = 0
+effective_bid_blue = 0
+fee_blue = 0
+--YELLOW
+reputation_yellow = 0
+effective_bid_yellow = 0
+fee_yellow = 0
+--GREEN
+reputation_green = 0
+effective_bid_green = 0
+fee_green = 0
+--ORANGE
+reputation_orange = 0
+effective_bid_orange = 0
+fee_orange = 0
+--PURPLE
+reputation_purple = 0
+effective_bid_purple = 0
+fee_purple = 0
+--PINK
+reputation_pink = 0
+effective_bid_pink = 0
+fee_pink = 0
+--WHITE
+reputation_white = 0
+effective_bid_white = 0
+fee_white = 0
+
+--Button press activates bidding process
+function buttonPress(obj, color)
+    if lockout == false then
+        initiator = color
+        broadcastToAll(Player[initiator].steam_name .. " initiated a bidding process.", {0, 255, 0})
+        self.AssetBundle.playTriggerEffect(0) --triggers animation/sound
+        lockout = true --locks out the button
+        intention_yes_data = {} --Creates/clears intention_data tables
+        intention_yes_count = {}
+        intention_yes_players = {}
+        intention_all_count = {}
+        showBidIntention()
+        intention_yes_data[initiator] = "Yes"
+        table.insert(intention_yes_count, "Yes")
+        table.insert(intention_yes_players, Player[initiator].steam_name)
+        table.insert (intention_all_count, Player[initiator].steam_name)
+    end
+end
+
+--Makes UI Bid Intention content visible
+function showBidIntention()
+    --RED
+    if Player["Red"].seated == true and Player["Red"] ~= Player[initiator] then
+        UI.setAttribute("intention_panel_red", "active", true)
+        UI.setAttribute("intention_text_red", "active", true)
+        UI.setAttribute("intention_toggle_red", "active", true)
+        UI.setAttribute("intention_button_red", "active", true)
+    end
+    --BLUE
+    if Player["Blue"].seated == true and Player["Blue"] ~= Player[initiator] then
+        UI.setAttribute("intention_panel_blue", "active", true)
+        UI.setAttribute("intention_text_blue", "active", true)
+        UI.setAttribute("intention_toggle_blue", "active", true)
+        UI.setAttribute("intention_button_blue", "active", true)
+    end
+    --YELLOW
+    if Player["Yellow"].seated == true and Player["Yellow"] ~= Player[initiator] then
+        UI.setAttribute("intention_panel_yellow", "active", true)
+        UI.setAttribute("intention_text_yellow", "active", true)
+        UI.setAttribute("intention_toggle_yellow", "active", true)
+        UI.setAttribute("intention_button_yellow", "active", true)
+    end
+    --GREEN
+    if Player["Green"].seated == true and Player["Green"] ~= Player[initiator] then
+        UI.setAttribute("intention_panel_green", "active", true)
+        UI.setAttribute("intention_text_green", "active", true)
+        UI.setAttribute("intention_toggle_green", "active", true)
+        UI.setAttribute("intention_button_green", "active", true)
+    end
+    --ORANGE
+    if Player["Orange"].seated == true and Player["Orange"] ~= Player[initiator] then
+        UI.setAttribute("intention_panel_orange", "active", true)
+        UI.setAttribute("intention_text_orange", "active", true)
+        UI.setAttribute("intention_toggle_orange", "active", true)
+        UI.setAttribute("intention_button_orange", "active", true)
+    end
+    --PURPLE
+    if Player["Purple"].seated == true and Player["Purple"] ~= Player[initiator] then
+        UI.setAttribute("intention_panel_purple", "active", true)
+        UI.setAttribute("intention_text_purple", "active", true)
+        UI.setAttribute("intention_toggle_purple", "active", true)
+        UI.setAttribute("intention_button_purple", "active", true)
+    end
+    --PINK
+    if Player["Pink"].seated == true and Player["Pink"] ~= Player[initiator] then
+        UI.show("intention_panel_pink")
+        UI.show("intention_text_pink")
+        UI.show("intention_toggle_pink")
+        UI.show("intention_button_pink")
+    end
+    --WHITE
+    if Player["White"].seated == true and Player["White"] ~= Player[initiator] then
+        UI.show("intention_panel_white")
+        UI.show("intention_text_white")
+        UI.show("intention_toggle_white")
+        UI.show("intention_button_white")
+    end
+    --ALL
+    UI.setAttribute("all_bid_intentions_in", "visibility", initiator)
+    UI.setAttribute("all_bid_intentions_in", "active", true)
+end
+
+--Determines value of each player's bid intention toggle selection
+--RED
+function bid_toggle_red(Player, value, id)
+    bid_intention_red = value
+    if bid_intention_red == "True" then
+        bid_intention_red = "Yes"
+    elseif bid_intention_red == "False" then
+        bid_intention_red = "No"
+    end
+end
+--BLUE
+function bid_toggle_blue(Player, value, id)
+    bid_intention_blue = value
+    if bid_intention_blue == "True" then
+        bid_intention_blue = "Yes"
+    elseif bid_intention_blue == "False" then
+        bid_intention_blue = "No"
+    end
+end
+--YELLOW
+function bid_toggle_yellow(Player, value, id)
+    bid_intention_yellow = value
+    if bid_intention_yellow == "True" then
+        bid_intention_yellow = "Yes"
+    elseif bid_intention_yellow == "False" then
+        bid_intention_yellow = "No"
+    end
+end
+--GREEN
+function bid_toggle_green(Player, value, id)
+    bid_intention_green = value
+    if bid_intention_green == "True" then
+        bid_intention_green = "Yes"
+    elseif bid_intention_green == "False" then
+        bid_intention_green = "No"
+    end
+end
+--ORANGE
+function bid_toggle_orange(Player, value, id)
+    bid_intention_orange = value
+    if bid_intention_orange == "True" then
+        bid_intention_orange = "Yes"
+    elseif bid_intention_orange == "False" then
+        bid_intention_orange = "No"
+    end
+end
+--PURPLE
+function bid_toggle_purple(Player, value, id)
+    bid_intention_purple = value
+    if bid_intention_purple == "True" then
+        bid_intention_purple = "Yes"
+    elseif bid_intention_purple == "False" then
+        bid_intention_purple = "No"
+    end
+end
+--PINK
+function bid_toggle_pink(Player, value, id)
+    bid_intention_pink = value
+    if bid_intention_pink == "True" then
+        bid_intention_pink = "Yes"
+    elseif bid_intention_pink == "False" then
+        bid_intention_pink = "No"
+    end
+end
+--WHITE
+function bid_toggle_white(Player, value, id)
+    bid_intention_white = value
+    if bid_intention_white == "True" then
+        bid_intention_white = "Yes"
+    elseif bid_intention_white == "False" then
+        bid_intention_white = "No"
+    end
+end
+
+--Calculates number of bidding intention submissions
+function tableLength(T)
+    local count = 0
+    for _ in pairs(T) do count = count + 1 end
+    return count
+end
+
+--Checks whether all players have submitted intention
+function intentionsCheck()
+    playerList = Player.getPlayers()
+    if tableLength(intention_all_count) == #playerList then
+        showBid()
+    end
+end
+
+--Submits value of each player's bid intention
+--RED
+function submitIntentionRed(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid intention.", Table)
+    if bid_intention_red == "Yes" then
+        intention_yes_data["Red"] = bid_intention_red
+        table.insert(intention_yes_count, bid_intention_red)
+        table.insert(intention_yes_players, Player.steam_name)
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    elseif bid_intention_red == "No" then
+        printToColor("Wait for other players to finish bidding.", "Red", {134/255, 197/255, 218/255})
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    end
+    UI.hide("intention_panel_red")
+    UI.hide("intention_text_red")
+    UI.hide("intention_toggle_red")
+    UI.hide("intention_button_red")
+end
+--BLUE
+function submitIntentionBlue(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid intention.", Table)
+    if bid_intention_blue == "Yes" then
+        intention_yes_data["Blue"] = bid_intention_blue
+        table.insert(intention_yes_count, bid_intention_blue)
+        table.insert(intention_yes_players, Player.steam_name)
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    elseif bid_intention_blue == "No" then
+        printToColor("Wait for other players to finish bidding.", "Blue", {134/255, 197/255, 218/255})
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    end
+    UI.hide("intention_panel_blue")
+    UI.hide("intention_text_blue")
+    UI.hide("intention_toggle_blue")
+    UI.hide("intention_button_blue")
+end
+--YELLOW
+function submitIntentionYellow(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid intention.", Table)
+    if bid_intention_yellow == "Yes" then
+        intention_yes_data["Yellow"] = bid_intention_yellow
+        table.insert(intention_yes_count, bid_intention_yellow)
+        table.insert(intention_yes_players, Player.steam_name)
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    elseif bid_intention_yellow == "No" then
+        printToColor("Wait for other players to finish bidding.", "Yellow", {134/255, 197/255, 218/255})
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    end
+    UI.hide("intention_panel_yellow")
+    UI.hide("intention_text_yellow")
+    UI.hide("intention_toggle_yellow")
+    UI.hide("intention_button_yellow")
+end
+--GREEN
+function submitIntentionGreen(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid intention.", Table)
+    if bid_intention_green == "Yes" then
+        intention_yes_data["Green"] = bid_intention_green
+        table.insert(intention_yes_count, bid_intention_green)
+        table.insert(intention_yes_players, Player.steam_name)
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    elseif bid_intention_green == "No" then
+        printToColor("Wait for other players to finish bidding.", "Green", {134/255, 197/255, 218/255})
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    end
+    UI.hide("intention_panel_green")
+    UI.hide("intention_text_green")
+    UI.hide("intention_toggle_green")
+    UI.hide("intention_button_green")
+end
+--ORANGE
+function submitIntentionOrange(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid intention.", Table)
+    if bid_intention_orange == "Yes" then
+        intention_yes_data["Orange"] = bid_intention_orange
+        table.insert(intention_yes_count, bid_intention_orange)
+        table.insert(intention_yes_players, Player.steam_name)
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    elseif bid_intention_orange == "No" then
+        printToColor("Wait for other players to finish bidding.", "Orange", {134/255, 197/255, 218/255})
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    end
+    UI.hide("intention_panel_orange")
+    UI.hide("intention_text_orange")
+    UI.hide("intention_toggle_orange")
+    UI.hide("intention_button_orange")
+end
+--PURPLE
+function submitIntentionPurple(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid intention.", Table)
+    if bid_intention_purple == "Yes" then
+        intention_yes_data["Purple"] = bid_intention_purple
+        table.insert(intention_yes_count, bid_intention_purple)
+        table.insert(intention_yes_players, Player.steam_name)
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    elseif bid_intention_purple == "No" then
+        printToColor("Wait for other players to finish bidding.", "Purple", {134/255, 197/255, 218/255})
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    end
+    UI.hide("intention_panel_purple")
+    UI.hide("intention_text_purple")
+    UI.hide("intention_toggle_purple")
+    UI.hide("intention_button_purple")
+end
+--PINK
+function submitIntentionPink(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid intention.", Table)
+    if bid_intention_pink == "Yes" then
+        intention_yes_data["Pink"] = bid_intention_pink
+        table.insert(intention_yes_count, bid_intention_pink)
+        table.insert(intention_yes_players, Player.steam_name)
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    elseif bid_intention_pink == "No" then
+        printToColor("Wait for other players to finish bidding.", "Pink", {134/255, 197/255, 218/255})
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    end
+    UI.hide("intention_panel_pink")
+    UI.hide("intention_text_pink")
+    UI.hide("intention_toggle_pink")
+    UI.hide("intention_button_pink")
+end
+--WHITE
+function submitIntentionWhite(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid intention.", Table)
+    if bid_intention_white == "Yes" then
+        intention_yes_data["White"] = bid_intention_white
+        table.insert(intention_yes_count, bid_intention_white)
+        table.insert(intention_yes_players, Player.steam_name)
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    elseif bid_intention_white == "No" then
+        printToColor("Wait for other players to finish bidding.", "White", {134/255, 197/255, 218/255})
+        table.insert (intention_all_count, Player.steam_name)
+        intentionsCheck()
+    end
+    UI.hide("intention_panel_white")
+    UI.hide("intention_text_white")
+    UI.hide("intention_toggle_white")
+    UI.hide("intention_button_white")
+end
+
+--Prints list of players who said "Yes" to bidding on the job
+function listParticipatingBidders()
+    printToAll("Bidders...", {255/255, 165/255, 0/255})
+    local i = 1
+    while (i <= #intention_yes_players) do
+        printToAll(intention_yes_players[i], {255/255, 165/255, 0/255})
+        i = i + 1
+    end
+end
+
+--Makes UI Bid Adjustment/Submission content visible
+function showBid()
+    UI.hide("all_bid_intentions_in")
+    --Hides bid intention content in case a player lagged behind and didn't submit
+    --RED
+    UI.hide("intention_panel_red")
+    UI.hide("intention_text_red")
+    UI.hide("intention_toggle_red")
+    UI.hide("intention_button_red")
+    --BLUE
+    UI.hide("intention_panel_blue")
+    UI.hide("intention_text_blue")
+    UI.hide("intention_toggle_blue")
+    UI.hide("intention_button_blue")
+    --YELLOW
+    UI.hide("intention_panel_yellow")
+    UI.hide("intention_text_yellow")
+    UI.hide("intention_toggle_yellow")
+    UI.hide("intention_button_yellow")
+    --GREEN
+    UI.hide("intention_panel_green")
+    UI.hide("intention_text_green")
+    UI.hide("intention_toggle_green")
+    UI.hide("intention_button_green")
+    --ORANGE
+    UI.hide("intention_panel_orange")
+    UI.hide("intention_text_orange")
+    UI.hide("intention_toggle_orange")
+    UI.hide("intention_button_orange")
+    --PURPLE
+    UI.hide("intention_panel_purple")
+    UI.hide("intention_text_purple")
+    UI.hide("intention_toggle_purple")
+    UI.hide("intention_button_purple")
+    --PINK
+    UI.hide("intention_panel_pink")
+    UI.hide("intention_text_pink")
+    UI.hide("intention_toggle_pink")
+    UI.hide("intention_button_pink")
+    --WHITE
+    UI.hide("intention_panel_white")
+    UI.hide("intention_text_white")
+    UI.hide("intention_toggle_white")
+    UI.hide("intention_button_white")
+    if #intention_yes_count == 1 then
+        broadcastToAll(intention_yes_players[1] .. " wins job at market rate!", {0, 255, 0})
+        printToAll("No one else chose to bid.", {255/255, 165/255, 0/255})
+        startLockoutTimer()
+    else
+        listParticipatingBidders()
+        -- UI.setAttribute("all_bids_in", "visibility", initiator)
+        -- UI.setAttribute("all_bids_in", "active", true)
+        --RED
+        if intention_yes_data["Red"] == "Yes" then
+            UI.setAttribute("bid_panel_red", "active", true)
+            UI.setAttribute("effective_bid_text_red", "active", true)
+            UI.setAttribute("reputation_text_red", "active", true)
+            UI.setAttribute("fee_text_red", "active", true)
+            UI.setAttribute("effective_bid_red", "active", true)
+            UI.setAttribute("reputation_red", "active", true)
+            UI.setAttribute("fee_red", "active", true)
+            UI.setAttribute("bid_button_red", "active", true)
+        end
+        --BLUE
+        if intention_yes_data["Blue"] == "Yes" then
+            UI.setAttribute("bid_panel_blue", "active", true)
+            UI.setAttribute("effective_bid_text_blue", "active", true)
+            UI.setAttribute("reputation_text_blue", "active", true)
+            UI.setAttribute("fee_text_blue", "active", true)
+            UI.setAttribute("effective_bid_blue", "active", true)
+            UI.setAttribute("reputation_blue", "active", true)
+            UI.setAttribute("fee_blue", "active", true)
+            UI.setAttribute("bid_button_blue", "active", true)
+        end
+        --YELLOW
+        if intention_yes_data["Yellow"] == "Yes" then
+            UI.setAttribute("bid_panel_yellow", "active", true)
+            UI.setAttribute("effective_bid_text_yellow", "active", true)
+            UI.setAttribute("reputation_text_yellow", "active", true)
+            UI.setAttribute("fee_text_yellow", "active", true)
+            UI.setAttribute("effective_bid_yellow", "active", true)
+            UI.setAttribute("reputation_yellow", "active", true)
+            UI.setAttribute("fee_yellow", "active", true)
+            UI.setAttribute("bid_button_yellow", "active", true)
+        end
+        --GREEN
+        if intention_yes_data["Green"] == "Yes" then
+            UI.setAttribute("bid_panel_green", "active", true)
+            UI.setAttribute("effective_bid_text_green", "active", true)
+            UI.setAttribute("reputation_text_green", "active", true)
+            UI.setAttribute("fee_text_green", "active", true)
+            UI.setAttribute("effective_bid_green", "active", true)
+            UI.setAttribute("reputation_green", "active", true)
+            UI.setAttribute("fee_green", "active", true)
+            UI.setAttribute("bid_button_green", "active", true)
+        end
+        --ORANGE
+        if intention_yes_data["Orange"] == "Yes" then
+            UI.setAttribute("bid_panel_orange", "active", true)
+            UI.setAttribute("effective_bid_text_orange", "active", true)
+            UI.setAttribute("reputation_text_orange", "active", true)
+            UI.setAttribute("fee_text_orange", "active", true)
+            UI.setAttribute("effective_bid_orange", "active", true)
+            UI.setAttribute("reputation_orange", "active", true)
+            UI.setAttribute("fee_orange", "active", true)
+            UI.setAttribute("bid_button_orange", "active", true)
+        end
+        --PURPLE
+        if intention_yes_data["Purple"] == "Yes" then
+            UI.setAttribute("bid_panel_purple", "active", true)
+            UI.setAttribute("effective_bid_text_purple", "active", true)
+            UI.setAttribute("reputation_text_purple", "active", true)
+            UI.setAttribute("fee_text_purple", "active", true)
+            UI.setAttribute("effective_bid_purple", "active", true)
+            UI.setAttribute("reputation_purple", "active", true)
+            UI.setAttribute("fee_purple", "active", true)
+            UI.setAttribute("bid_button_purple", "active", true)
+        end
+        --PINK
+        if intention_yes_data["Pink"] == "Yes" then
+            UI.show("bid_panel_pink")
+            UI.show("effective_bid_text_pink")
+            UI.show("reputation_text_pink")
+            UI.show("fee_text_pink")
+            UI.show("effective_bid_pink")
+            UI.show("reputation_pink")
+            UI.show("fee_pink")
+            UI.show("bid_button_pink")
+        end
+        --WHITE
+        if intention_yes_data["White"] == "Yes" then
+            UI.show("bid_panel_white")
+            UI.show("effective_bid_text_white")
+            UI.show("reputation_text_white")
+            UI.show("fee_text_white")
+            UI.show("effective_bid_white")
+            UI.show("reputation_white")
+            UI.show("fee_white")
+            UI.show("bid_button_white")
+        end
+        --Creates bidding tables
+        bidders = {} --Only player names
+        bids = {} --Only bid amounts
+        bid_data = {} --Player names AND bids entered
+        reputation_data = {} --Player names AND reputations entered
+        fee_data = {} --Player names AND fees entered
+    end
+end
+
+--Determines & adjusts bidding field values
+--RED
+function adjustBidRed(Player, value, id)
+    effective_bid_red = value
+    feeAdjustRed()
+end
+function adjustReputationRed(Player, value, id)
+    reputation_red = value
+    feeAdjustRed()
+end
+function feeAdjustRed()
+    if effective_bid_red == nil then
+        effective_bid_red = 0
+    end
+    if reputation_red == nil then
+        reputation_red = 0
+    end
+    fee_red = effective_bid_red + reputation_red * 5
+    UI.setAttribute("fee_red", "text", fee_red)
+end
+--BLUE
+function adjustBidBlue(Player, value, id)
+    effective_bid_blue = value
+    feeAdjustBlue()
+end
+function adjustReputationBlue(Player, value, id)
+    reputation_blue = value
+    feeAdjustBlue()
+end
+function feeAdjustBlue()
+    if effective_bid_blue == nil then
+        effective_bid_blue = 0
+    end
+    if reputation_blue == nil then
+        reputation_blue = 0
+    end
+    fee_blue = effective_bid_blue + reputation_blue * 5
+    UI.setAttribute("fee_blue", "text", fee_blue)
+end
+--YELLOW
+function adjustBidYellow(Player, value, id)
+    effective_bid_yellow = value
+    feeAdjustYellow()
+end
+function adjustReputationYellow(Player, value, id)
+    reputation_yellow = value
+    feeAdjustYellow()
+end
+function feeAdjustYellow()
+    if reputation_yellow == nil then
+        reputation_yellow = 0
+    end
+    if effective_bid_yellow == nil then
+        effective_bid_yellow = 0
+    end
+    fee_yellow = effective_bid_yellow + reputation_yellow * 5
+    UI.setAttribute("fee_yellow", "text", fee_yellow)
+end
+--GREEN
+function adjustBidGreen(Player, value, id)
+    effective_bid_green = value
+    feeAdjustGreen()
+end
+function adjustReputationGreen(Player, value, id)
+    reputation_green = value
+    feeAdjustGreen()
+end
+function feeAdjustGreen()
+    if reputation_green == nil then
+        reputation_green = 0
+    end
+    if effective_bid_green == nil then
+        effective_bid_green = 0
+    end
+    fee_green = effective_bid_green + reputation_green * 5
+    UI.setAttribute("fee_green", "text", fee_green)
+end
+--ORANGE
+function adjustBidOrange(Player, value, id)
+    effective_bid_orange = value
+    feeAdjustOrange()
+end
+function adjustReputationOrange(Player, value, id)
+    reputation_orange = value
+    feeAdjustOrange()
+end
+function feeAdjustOrange()
+    if reputation_orange == nil then
+        reputation_orange = 0
+    end
+    if effective_bid_orange == nil then
+        effective_bid_orange = 0
+    end
+    fee_orange = effective_bid_orange + reputation_orange * 5
+    UI.setAttribute("fee_orange", "text", fee_orange)
+end
+--PURPLE
+function adjustBidPurple(Player, value, id)
+    effective_bid_purple = value
+    feeAdjustPurple()
+end
+function adjustReputationPurple(Player, value, id)
+    reputation_purple = value
+    feeAdjustPurple()
+end
+function feeAdjustPurple()
+    if reputation_purple == nil then
+        reputation_purple = 0
+    end
+    if effective_bid_purple == nil then
+        effective_bid_purple = 0
+    end
+    fee_purple = effective_bid_purple + reputation_purple * 5
+    UI.setAttribute("fee_purple", "text", fee_purple)
+end
+--PINK
+function adjustBidPink(Player, value, id)
+    effective_bid_pink = value
+    feeAdjustPink()
+end
+function adjustReputationPink(Player, value, id)
+    reputation_pink = value
+    feeAdjustPink()
+end
+function feeAdjustPink()
+    if reputation_pink == nil then
+        reputation_pink = 0
+    end
+    if effective_bid_pink == nil then
+        effective_bid_pink = 0
+    end
+    fee_pink = effective_bid_pink + reputation_pink * 5
+    UI.setAttribute("fee_pink", "text", fee_pink)
+end
+--WHITE
+function adjustBidWhite(Player, value, id)
+    effective_bid_white = value
+    feeAdjustWhite()
+end
+function adjustReputationWhite(Player, value, id)
+    reputation_white = value
+    feeAdjustWhite()
+end
+function feeAdjustWhite()
+    if reputation_white == nil then
+        reputation_white = 0
+    end
+    if effective_bid_white == nil then
+        effective_bid_white = 0
+    end
+    fee_white = effective_bid_white + reputation_white * 5
+    UI.setAttribute("fee_white", "text", fee_white)
+end
+
+--Checks whether all players have submitted intention
+function bidsCheck()
+    if #bids == tableLength(intention_all_count) then
+        lockBids()
+    end
+end
+
+--Submits values of each player's bid, reputation, and fee
+--RED
+function submitBidRed(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid.", Table)
+    printToColor("Your effective bid: $" .. effective_bid_red, "Red", {134/255, 197/255, 218/255})
+    UI.hide("bid_panel_red")
+    UI.hide("effective_bid_text_red")
+    UI.hide("reputation_text_red")
+    UI.hide("fee_text_red")
+    UI.hide("effective_bid_red")
+    UI.hide("reputation_red")
+    UI.hide("fee_red")
+    UI.hide("bid_button_red")
+    table.insert(bidders, Player.steam_name)
+    table.insert(bids, effective_bid_red)
+    bid_data[Player.steam_name] = effective_bid_red
+    reputation_data[Player.steam_name] = reputation_red
+    fee_data[Player.steam_name] = fee_red
+    bidsCheck()
+end
+--BLUE
+function submitBidBlue(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid.", Table)
+    printToColor("Your effective bid: $" .. effective_bid_blue, "Blue", {134/255, 197/255, 218/255})
+    UI.hide("bid_panel_blue")
+    UI.hide("effective_bid_text_blue")
+    UI.hide("reputation_text_blue")
+    UI.hide("fee_text_blue")
+    UI.hide("effective_bid_blue")
+    UI.hide("reputation_blue")
+    UI.hide("fee_blue")
+    UI.hide("bid_button_blue")
+    table.insert(bidders, Player.steam_name)
+    table.insert(bids, effective_bid_blue)
+    bid_data[Player.steam_name] = effective_bid_blue
+    reputation_data[Player.steam_name] = reputation_blue
+    fee_data[Player.steam_name] = fee_blue
+    bidsCheck()
+end
+--YELLOW
+function submitBidYellow(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid.", Table)
+    printToColor("Your effective bid: $" .. effective_bid_yellow, "Yellow", {134/255, 197/255, 218/255})
+    UI.hide("bid_panel_yellow")
+    UI.hide("effective_bid_text_yellow")
+    UI.hide("reputation_text_yellow")
+    UI.hide("fee_text_yellow")
+    UI.hide("effective_bid_yellow")
+    UI.hide("reputation_yellow")
+    UI.hide("fee_yellow")
+    UI.hide("bid_button_yellow")
+    table.insert(bidders, Player.steam_name)
+    table.insert(bids, effective_bid_yellow)
+    bid_data[Player.steam_name] = effective_bid_yellow
+    reputation_data[Player.steam_name] = reputation_yellow
+    fee_data[Player.steam_name] = fee_yellow
+    bidsCheck()
+end
+--GREEN
+function submitBidGreen(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid.", Table)
+    printToColor("Your effective bid: $" .. effective_bid_green, "Green", {134/255, 197/255, 218/255})
+    UI.hide("bid_panel_green")
+    UI.hide("effective_bid_text_green")
+    UI.hide("reputation_text_green")
+    UI.hide("fee_text_green")
+    UI.hide("effective_bid_green")
+    UI.hide("reputation_green")
+    UI.hide("fee_green")
+    UI.hide("bid_button_green")
+    table.insert(bidders, Player.steam_name)
+    table.insert(bids, effective_bid_green)
+    bid_data[Player.steam_name] = effective_bid_green
+    reputation_data[Player.steam_name] = reputation_green
+    fee_data[Player.steam_name] = fee_green
+    bidsCheck()
+end
+--ORANGE
+function submitBidOrange(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid.", Table)
+    printToColor("Your effective bid: $" .. effective_bid_orange, "Orange", {134/255, 197/255, 218/255})
+    UI.hide("bid_panel_orange")
+    UI.hide("effective_bid_text_orange")
+    UI.hide("reputation_text_orange")
+    UI.hide("fee_text_orange")
+    UI.hide("effective_bid_orange")
+    UI.hide("reputation_orange")
+    UI.hide("fee_orange")
+    UI.hide("bid_button_orange")
+    table.insert(bidders, Player.steam_name)
+    table.insert(bids, effective_bid_orange)
+    bid_data[Player.steam_name] = effective_bid_orange
+    reputation_data[Player.steam_name] = reputation_orange
+    fee_data[Player.steam_name] = fee_orange
+    bidsCheck()
+end
+--PURPLE
+function submitBidPurple(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid.", Table)
+    printToColor("Your effective bid: $" .. effective_bid_purple, "Purple", {134/255, 197/255, 218/255})
+    UI.hide("bid_panel_purple")
+    UI.hide("effective_bid_text_purple")
+    UI.hide("reputation_text_purple")
+    UI.hide("fee_text_purple")
+    UI.hide("effective_bid_purple")
+    UI.hide("reputation_purple")
+    UI.hide("fee_purple")
+    UI.hide("bid_button_purple")
+    table.insert(bidders, Player.steam_name)
+    table.insert(bids, effective_bid_purple)
+    bid_data[Player.steam_name] = effective_bid_purple
+    reputation_data[Player.steam_name] = reputation_purple
+    fee_data[Player.steam_name] = fee_purple
+    bidsCheck()
+end
+--PINK
+function submitBidPink(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid.", Table)
+    printToColor("Your effective bid: $" .. effective_bid_pink, "Pink", {134/255, 197/255, 218/255})
+    UI.hide("bid_panel_pink")
+    UI.hide("effective_bid_text_pink")
+    UI.hide("reputation_text_pink")
+    UI.hide("fee_text_pink")
+    UI.hide("effective_bid_pink")
+    UI.hide("reputation_pink")
+    UI.hide("fee_pink")
+    UI.hide("bid_button_pink")
+    table.insert(bidders, Player.steam_name)
+    table.insert(bids, effective_bid_pink)
+    bid_data[Player.steam_name] = effective_bid_pink
+    reputation_data[Player.steam_name] = reputation_pink
+    fee_data[Player.steam_name] = fee_pink
+    bidsCheck()
+end
+--WHITE
+function submitBidWhite(Player, value, id)
+    printToAll(Player.steam_name .. " submitted bid.", Table)
+    printToColor("Your effective bid: $" .. effective_bid_white, "White", {134/255, 197/255, 218/255})
+    UI.hide("bid_panel_white")
+    UI.hide("effective_bid_text_white")
+    UI.hide("reputation_text_white")
+    UI.hide("fee_text_white")
+    UI.hide("effective_bid_white")
+    UI.hide("reputation_white")
+    UI.hide("fee_white")
+    UI.hide("bid_button_white")
+    table.insert(bidders, Player.steam_name)
+    table.insert(bids, effective_bid_white)
+    bid_data[Player.steam_name] = effective_bid_white
+    reputation_data[Player.steam_name] = reputation_white
+    fee_data[Player.steam_name] = fee_white
+    bidsCheck()
+end
+
+--Copies the bids array so we can preserve original submission order and determine indices of certain values
+function copyArray(origTable)
+    local bids_copy = {unpack(origTable)}
+    return bids_copy
+end
+
+--Evaluates bids, finds lowest effective bid
+function evaluateBids()
+    bids_copy = copyArray(bids)
+    bids_copy = table.sort(bids_copy)
+    lowest_bid = bids_copy[1]
+    winner_index = winnerIndex(bids, lowest_bid)
+end
+
+--Returns index of lowest effective bid
+function winnerIndex(bids, lowest_bid)
+    local index = {}
+    for k,v in pairs(bids) do
+        index[v] = k
+    end
+    return index[lowest_bid]
+end
+
+--Prints list of all bids from lowest to highest
+function listAllBids()
+    printToAll("Bids...", {255/255, 165/255, 0/255})
+    local index = {}
+    for k, v in pairs(bid_data) do
+        printToAll(k .. ": $" .. v, {255/255, 165/255, 0/255})
+    end
+end
+
+--In the event of a tie for lowest bid...
+function listTied()
+    local function getKeysSortedByValue(tbl, sortFunction)
+        local keys = {}
+        for key in pairs(tbl) do
+            table.insert(keys, key)
+        end
+        table.sort(keys, function(a, b)
+            return sortFunction(tbl[a], tbl[b])
+        end)
+        return keys
+    end
+    local sortedKeys = getKeysSortedByValue(bid_data, function(a, b) return a < b end)
+    printToAll("Tied for lowest effective bid...", {255, 255, 0})
+    local index = 3
+    local index_2 = 1
+    while bids_copy[index] == bids_copy[1] do
+        index = index + 1
+    end
+    while index_2 < index do
+        printToAll(sortedKeys[index_2], {255, 255, 0})
+        index_2 = index_2 + 1
+    end
+end
+
+--Submits and evaluates bids, announces outcome
+function lockBids()
+    -- UI.hide("all_bids_in")
+    --Hides bid content in case a player lagged behind and didn't submit
+    --RED
+    UI.hide("bid_panel_red")
+    UI.hide("effective_bid_text_red")
+    UI.hide("reputation_text_red")
+    UI.hide("fee_text_red")
+    UI.hide("effective_bid_red")
+    UI.hide("reputation_red")
+    UI.hide("fee_red")
+    UI.hide("bid_button_red")
+    --BLUE
+    UI.hide("bid_panel_blue")
+    UI.hide("effective_bid_text_blue")
+    UI.hide("reputation_text_blue")
+    UI.hide("fee_text_blue")
+    UI.hide("effective_bid_blue")
+    UI.hide("reputation_blue")
+    UI.hide("fee_blue")
+    UI.hide("bid_button_blue")
+    --YELLOW
+    UI.hide("bid_panel_yellow")
+    UI.hide("effective_bid_text_yellow")
+    UI.hide("reputation_text_yellow")
+    UI.hide("fee_text_yellow")
+    UI.hide("effective_bid_yellow")
+    UI.hide("reputation_yellow")
+    UI.hide("fee_yellow")
+    UI.hide("bid_button_yellow")
+    --GREEN
+    UI.hide("bid_panel_green")
+    UI.hide("effective_bid_text_green")
+    UI.hide("reputation_text_green")
+    UI.hide("fee_text_green")
+    UI.hide("effective_bid_green")
+    UI.hide("reputation_green")
+    UI.hide("fee_green")
+    UI.hide("bid_button_green")
+    --ORANGE
+    UI.hide("bid_panel_orange")
+    UI.hide("effective_bid_text_orange")
+    UI.hide("reputation_text_orange")
+    UI.hide("fee_text_orange")
+    UI.hide("effective_bid_orange")
+    UI.hide("reputation_orange")
+    UI.hide("fee_orange")
+    UI.hide("bid_button_orange")
+    --PURPLE
+    UI.hide("bid_panel_purple")
+    UI.hide("effective_bid_text_purple")
+    UI.hide("reputation_text_purple")
+    UI.hide("fee_text_purple")
+    UI.hide("effective_bid_purple")
+    UI.hide("reputation_purple")
+    UI.hide("fee_purple")
+    UI.hide("bid_button_purple")
+    --PINK
+    UI.hide("bid_panel_pink")
+    UI.hide("effective_bid_text_pink")
+    UI.hide("reputation_text_pink")
+    UI.hide("fee_text_pink")
+    UI.hide("effective_bid_pink")
+    UI.hide("reputation_pink")
+    UI.hide("fee_pink")
+    UI.hide("bid_button_pink")
+    --WHITE
+    UI.hide("bid_panel_white")
+    UI.hide("effective_bid_text_white")
+    UI.hide("reputation_text_white")
+    UI.hide("fee_text_white")
+    UI.hide("effective_bid_white")
+    UI.hide("reputation_white")
+    UI.hide("fee_white")
+    UI.hide("bid_button_white")
+    evaluateBids()
+    listAllBids()
+    if lowest_bid == bids_copy[2] then
+        broadcastToAll("It's a tie. Tied players must re-bid.", {255, 255, 0})
+        listTied()
+    else
+        broadcastToAll("Winner: " .. bidders[winner_index], {0, 255, 0})
+        printToAll("Effective bid: $" .. bid_data[bidders[winner_index]], {0, 255, 0})
+        printToAll("Reputation: " .. reputation_data[bidders[winner_index]], {0, 255, 0})
+        printToAll("Fee: $" .. fee_data[bidders[winner_index]], {0, 255, 0})
+    end
+    startLockoutTimer()
+end
+
+--Runs on load, creates button and makes sure the lockout is off
+function onload()
+    self.createButton({
+        label="Big Red Button\n\nBy: MrStump", click_function = "buttonPress",
+        function_owner = self,  position={0,0.25,0}, height=1400, width=1400
+    })
+    --RED
+    UI.setAttribute("effective_bid_red", "text", effective_bid_red)
+    UI.setAttribute("reputation_red", "text", reputation_red)
+    UI.setAttribute("fee_red", "text", fee_red)
+    --BLUE
+    UI.setAttribute("effective_bid_blue", "text", effective_bid_blue)
+    UI.setAttribute("reputation_blue", "text", reputation_blue)
+    UI.setAttribute("fee_blue", "text", fee_blue)
+    --YELLOW
+    UI.setAttribute("effective_bid_yellow", "text", effective_bid_yellow)
+    UI.setAttribute("reputation_yellow", "text", reputation_yellow)
+    UI.setAttribute("fee_yellow", "text", fee_yellow)
+    --GREEN
+    UI.setAttribute("effective_bid_green", "text", effective_bid_green)
+    UI.setAttribute("reputation_green", "text", reputation_green)
+    UI.setAttribute("fee_green", "text", fee_green)
+    --ORANGE
+    UI.setAttribute("effective_bid_orange", "text", effective_bid_orange)
+    UI.setAttribute("reputation_orange", "text", reputation_orange)
+    UI.setAttribute("fee_orange", "text", fee_orange)
+    --PURPLE
+    UI.setAttribute("effective_bid_purple", "text", effective_bid_purple)
+    UI.setAttribute("reputation_purple", "text", reputation_purple)
+    UI.setAttribute("fee_purple", "text", fee_purple)
+    --PINK
+    UI.setAttribute("effective_bid_pink", "text", effective_bid_pink)
+    UI.setAttribute("reputation_pink", "text", reputation_pink)
+    UI.setAttribute("fee_pink", "text", fee_pink)
+    --WHITE
+    UI.setAttribute("effective_bid_white", "text", effective_bid_white)
+    UI.setAttribute("reputation_white", "text", reputation_white)
+    UI.setAttribute("fee_white", "text", fee_white)
+    lockout = false
+end
+
+--Starts a timer that, when it ends, will unlock the button
+function startLockoutTimer()
+    Timer.create({identifier=self.getGUID(), function_name='unlockLockout', delay=0.5})
+end
+
+--Unlocks button
+function unlockLockout()
+    lockout = false
+end
+
+--Ends the timer if the object is destroyed before the timer ends, to prevent an error
+function onDestroy()
+    Timer.destroy(self.getGUID())
+end
