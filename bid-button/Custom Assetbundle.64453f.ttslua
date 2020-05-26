@@ -97,17 +97,17 @@ function showBidIntention()
     end
     --PINK
     if Player["Pink"].seated == true and Player["Pink"] ~= Player[initiator] then
-        UI.show("intention_panel_pink")
-        UI.show("intention_text_pink")
-        UI.show("intention_toggle_pink")
-        UI.show("intention_button_pink")
+        UI.setAttribute("intention_panel_pink", "active", true)
+        UI.setAttribute("intention_text_pink", "active", true)
+        UI.setAttribute("intention_toggle_pink", "active", true)
+        UI.setAttribute("intention_button_pink", "active", true)
     end
     --WHITE
     if Player["White"].seated == true and Player["White"] ~= Player[initiator] then
-        UI.show("intention_panel_white")
-        UI.show("intention_text_white")
-        UI.show("intention_toggle_white")
-        UI.show("intention_button_white")
+        UI.setAttribute("intention_panel_white", "active", true)
+        UI.setAttribute("intention_text_white", "active", true)
+        UI.setAttribute("intention_toggle_white", "active", true)
+        UI.setAttribute("intention_button_white", "active", true)
     end
     --ALL
     UI.setAttribute("all_bid_intentions_in", "visibility", initiator)
@@ -487,25 +487,25 @@ function showBid()
         end
         --PINK
         if intention_yes_data["Pink"] == "Yes" then
-            UI.show("bid_panel_pink")
-            UI.show("effective_bid_text_pink")
-            UI.show("reputation_text_pink")
-            UI.show("fee_text_pink")
-            UI.show("effective_bid_pink")
-            UI.show("reputation_pink")
-            UI.show("fee_pink")
-            UI.show("bid_button_pink")
+          UI.setAttribute("bid_panel_pink", "active", true)
+          UI.setAttribute("effective_bid_text_pink", "active", true)
+          UI.setAttribute("reputation_text_pink", "active", true)
+          UI.setAttribute("fee_text_pink", "active", true)
+          UI.setAttribute("effective_bid_pink", "active", true)
+          UI.setAttribute("reputation_pink", "active", true)
+          UI.setAttribute("fee_pink", "active", true)
+          UI.setAttribute("bid_button_pink", "active", true)
         end
         --WHITE
         if intention_yes_data["White"] == "Yes" then
-            UI.show("bid_panel_white")
-            UI.show("effective_bid_text_white")
-            UI.show("reputation_text_white")
-            UI.show("fee_text_white")
-            UI.show("effective_bid_white")
-            UI.show("reputation_white")
-            UI.show("fee_white")
-            UI.show("bid_button_white")
+          UI.setAttribute("bid_panel_white", "active", true)
+          UI.setAttribute("effective_bid_text_white", "active", true)
+          UI.setAttribute("reputation_text_white", "active", true)
+          UI.setAttribute("fee_text_white", "active", true)
+          UI.setAttribute("effective_bid_white", "active", true)
+          UI.setAttribute("reputation_white", "active", true)
+          UI.setAttribute("fee_white", "active", true)
+          UI.setAttribute("bid_button_white", "active", true)
         end
         --Creates bidding tables
         bidders = {} --Only player names
@@ -670,9 +670,9 @@ function feeAdjustWhite()
     UI.setAttribute("fee_white", "text", fee_white)
 end
 
---Checks whether all players have submitted intention
+--Checks whether all bidding players have submitted bid
 function bidsCheck()
-    if #bids == tableLength(intention_all_count) then
+    if #bids == tableLength(intention_yes_count) then
         lockBids()
     end
 end
