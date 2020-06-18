@@ -519,11 +519,11 @@ end
 --Determines & adjusts bidding field values
 --RED
 function adjustBidRed(Player, value, id)
-    effective_bid_red = value
+    effective_bid_red = tonumber(value)
     feeAdjustRed()
 end
 function adjustReputationRed(Player, value, id)
-    reputation_red = value
+    reputation_red = tonumber(value)
     feeAdjustRed()
 end
 function feeAdjustRed()
@@ -538,11 +538,11 @@ function feeAdjustRed()
 end
 --BLUE
 function adjustBidBlue(Player, value, id)
-    effective_bid_blue = value
+    effective_bid_blue = tonumber(value)
     feeAdjustBlue()
 end
 function adjustReputationBlue(Player, value, id)
-    reputation_blue = value
+    reputation_blue = tonumber(value)
     feeAdjustBlue()
 end
 function feeAdjustBlue()
@@ -557,11 +557,11 @@ function feeAdjustBlue()
 end
 --YELLOW
 function adjustBidYellow(Player, value, id)
-    effective_bid_yellow = value
+    effective_bid_yellow = tonumber(value)
     feeAdjustYellow()
 end
 function adjustReputationYellow(Player, value, id)
-    reputation_yellow = value
+    reputation_yellow = tonumber(value)
     feeAdjustYellow()
 end
 function feeAdjustYellow()
@@ -576,11 +576,11 @@ function feeAdjustYellow()
 end
 --GREEN
 function adjustBidGreen(Player, value, id)
-    effective_bid_green = value
+    effective_bid_green = tonumber(value)
     feeAdjustGreen()
 end
 function adjustReputationGreen(Player, value, id)
-    reputation_green = value
+    reputation_green = tonumber(value)
     feeAdjustGreen()
 end
 function feeAdjustGreen()
@@ -595,11 +595,11 @@ function feeAdjustGreen()
 end
 --ORANGE
 function adjustBidOrange(Player, value, id)
-    effective_bid_orange = value
+    effective_bid_orange = tonumber(value)
     feeAdjustOrange()
 end
 function adjustReputationOrange(Player, value, id)
-    reputation_orange = value
+    reputation_orange = tonumber(value)
     feeAdjustOrange()
 end
 function feeAdjustOrange()
@@ -614,11 +614,11 @@ function feeAdjustOrange()
 end
 --PURPLE
 function adjustBidPurple(Player, value, id)
-    effective_bid_purple = value
+    effective_bid_purple = tonumber(value)
     feeAdjustPurple()
 end
 function adjustReputationPurple(Player, value, id)
-    reputation_purple = value
+    reputation_purple = tonumber(value)
     feeAdjustPurple()
 end
 function feeAdjustPurple()
@@ -633,11 +633,11 @@ function feeAdjustPurple()
 end
 --PINK
 function adjustBidPink(Player, value, id)
-    effective_bid_pink = value
+    effective_bid_pink = tonumber(value)
     feeAdjustPink()
 end
 function adjustReputationPink(Player, value, id)
-    reputation_pink = value
+    reputation_pink = tonumber(value)
     feeAdjustPink()
 end
 function feeAdjustPink()
@@ -652,11 +652,11 @@ function feeAdjustPink()
 end
 --WHITE
 function adjustBidWhite(Player, value, id)
-    effective_bid_white = value
+    effective_bid_white = tonumber(value)
     feeAdjustWhite()
 end
 function adjustReputationWhite(Player, value, id)
-    reputation_white = value
+    reputation_white = tonumber(value)
     feeAdjustWhite()
 end
 function feeAdjustWhite()
